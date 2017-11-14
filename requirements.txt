@@ -1,0 +1,3 @@
+easysnmp
+requests
+
