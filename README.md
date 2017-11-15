@@ -42,6 +42,7 @@ Carbon collector depends on the following python packages:
 Installation
 --
 
-Download the latest distribution via github releases:
+Download the latest distribution via github releases here:
+https://github.com/stoffi92/carbon-collector/releases/latest
 
-pip install <downloaded-file>
+pip install downloaded-file.tar.gz
