@@ -1,10 +1,12 @@
 from carboncollector import WorkItem
 from carboncollector import SnmpPoller
 from carboncollector import UtilityPoller
+from carboncollector import Collector
 
+# Configure the collector:
 
-# Carbon pickle interface that should be used by the collector instances to write the data to the database
-carbon_pickle = '127.0.0.1:2004'
+collector_args = {'destination': '127.0.0.1:2004'}
+collector_class = Collector
 
 # Number of processes (this is actually a number of processes *not* threads!)
 num_threads = 8

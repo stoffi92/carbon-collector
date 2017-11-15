@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 
-with open('README.md') as f:
+with open('README.rst') as f:
     readme = f.read()
 
 setup(
@@ -15,8 +15,7 @@ setup(
     author_email='cl@tix.at',
     packages=find_packages(exclude=('tests', 'docs')),
     entry_points={
-        'console_scripts': ['ccollector=carboncollector.collector_app:main',
-                            'tagcollector=carboncollector.tagcollector_app:main'],
+        'console_scripts': ['ccollector=carboncollector.collector_app:main'],
     },
     install_requires=[
         'easysnmp', 'requests'

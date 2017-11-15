@@ -25,9 +25,10 @@ def main():
     # configuration
     import config as cfg
     tagsupport = getattr(cfg, 'tagsupport', False)
-    c = Collector(destination=getattr(cfg, 'carbon_pickle', None), tagsupport=tagsupport)
+    collector_class = getattr(cfg, 'collector_class', Collector)
+    collector_args = getattr(cfg, 'collector_args', {})
 
-    # run the collector
+    c = collector_class(**collector_args)
     c.collect(cfg.items, num_threads=getattr(cfg, 'num_threads', 1))
 
 
