@@ -8,7 +8,7 @@ with open('README.rst') as f:
 
 setup(
     name='carboncollector',
-    version='0.0.1',
+    version='0.0.1b',
     description='Multiprocessor collector for carbon db',
     long_description=readme,
     author='Christoph Loibl',
