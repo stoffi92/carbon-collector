@@ -39,11 +39,11 @@ class SnmpPoller(object):
 
     def init_ifmap(self):
         # index = OrderedDict()
-        _ = self.session.bulkwalk('1.3.6.1.2.1.31.1.1.1.1') # ifdesc
+        _ = self.session.bulkwalk('1.3.6.1.2.1.31.1.1.1.1', max_repetitions=2) # ifdesc
         for item in _:
             self.ifmap[item.oid_index] = str(item.value)
         # aliases = OrderedDict()
-        _ = self.session.bulkwalk('1.3.6.1.2.1.31.1.1.1.18') # ifalias
+        _ = self.session.bulkwalk('1.3.6.1.2.1.31.1.1.1.18', max_repetitions=2) # ifalias
         for item in _:
             self.ifaliases[item.oid_index] = str(item.value)
             m = re.search(r'\$([^\$].*)\$', str(item.value))
