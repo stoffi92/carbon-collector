@@ -55,7 +55,10 @@ class Collector(object):
             path = '.'.join(_)
             if self.tagsupport and item.tags:
                 _ = ['='.join((escape_carbon(k),escape_carbon(v))) for k, v in item.tags.items()]
-                path = path + ';' + ';'.join(_)
+                # store tagged data with _and_ without tags (this may not be what you want)
+                tag_path = path + ';' + ';'.join(_)
+                tuples.append((tag_path, (item.timestamp, item.value)))
+                lines.append("%s %s %d" % (tag_path, item.value, item.timestamp))
             tuples.append((path, (item.timestamp, item.value)))
             lines.append("%s %s %d" % (path, item.value, item.timestamp))
         message = '\n'.join(lines) + '\n'  # all lines must end in a newline
